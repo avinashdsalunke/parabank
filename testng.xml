@@ -5,7 +5,8 @@
     <classes>
       <class name="TestCases.VrifyRegester"/>
       <class name="TestCases.VerifyLogIn"/>
-      <class name="TestCases.veifyAccServices"/>     
+            <class name="TestCases.veifyAccServices"/>
+
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

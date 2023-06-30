@@ -9,9 +9,7 @@ import org.testng.asserts.SoftAssert;
 
 import PageObjectModel.AccountServices;
 
-import PageObjectModel.CommonMethod;
 import PageObjectModel.LogInPage;
-import PageObjectModel.RegesterPageObject;
 import Resources.BaseClass;
 import Resources.Constant;
 
@@ -51,7 +49,25 @@ public class veifyAccServices extends BaseClass {
 		  String act1=AS.accountoverviewvalid().getText();
 		  String exp1="Accounts Overview";
 		  assertions.assertEquals(act, exp, "account not overview");
-		  
+//transferfund		  
+			 AS.clickTransferFunds().click();
+			 AS.clickBillPay().click();
+			 AS.clickTransferFunds().click();
+			 Thread.sleep(2000);
+			 AS.ammount().sendKeys("20000");
+			 Thread.sleep(2000);
+			 Select fromacnt = new Select(AS.frmacnt());
+			 fromacnt.selectByIndex(0); 
+			 Select toacnt = new Select(AS.toacnt());
+			 toacnt.selectByIndex(0);
+			 Thread.sleep(2000);
+			 
+			 AS.trancefer().click();
+			 String act2=AS.trancefervalid().getText();
+			 String exp2="Transfer Complete!";
+			  assertions.assertEquals(act, exp, "ammount not trancefer");
+
+	  
 
 //find transaction  
 		 AS.clickFindTransactions().click();
@@ -87,8 +103,8 @@ public class veifyAccServices extends BaseClass {
 		 
 //request loan
 		 AS.clickReqLoan().click();
-		 AS.loanammount().sendKeys("10000");
-		 AS.downpayment().sendKeys("1200");
+		 AS.loanammount().sendKeys("2");
+		 AS.downpayment().sendKeys("1");
 		 Select dropdown2 = new Select(AS.fromaccount());
 		 dropdown2.selectByIndex(0);
 		Thread.sleep(2000);
@@ -119,25 +135,7 @@ public class veifyAccServices extends BaseClass {
 		 String exp6="Bill Payment Complete";
 		  assertions.assertEquals(act, exp, "payment not complete");
 		  
-	//transferfund		  
-			 AS.clickTransferFunds().click();
-			 AS.clickBillPay().click();
-			 AS.clickTransferFunds().click();
-			 Thread.sleep(2000);
-			 AS.ammount().sendKeys("1000");
-			 Thread.sleep(2000);
-			 Select fromacnt = new Select(AS.frmacnt());
-			 fromacnt.selectByIndex(0); 
-			 Select toacnt = new Select(AS.toacnt());
-			 toacnt.selectByIndex(0);
-			 Thread.sleep(2000);
-			 
-			 AS.trancefer().click();
-			 String act2=AS.trancefervalid().getText();
-			 String exp2="Transfer Complete!";
-			  assertions.assertEquals(act, exp, "ammount not trancefer");
-
-
+	
 //logout
 		 AS.logout().click();
 		 String act7=AS.logvalid().getText();

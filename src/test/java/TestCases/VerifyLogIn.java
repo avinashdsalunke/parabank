@@ -3,7 +3,6 @@ package TestCases;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-import PageObjectModel.CommonMethod;
 import PageObjectModel.LogInPage;
 import Resources.BaseClass;
 import Resources.Constant;
@@ -17,6 +16,8 @@ public class VerifyLogIn extends BaseClass{
    public void Login() {
 	   LOG=new LogInPage(driver);
 	   LOG.entreUser().sendKeys(VrifyRegester.username);
+	  // LOG.entreUser().sendKeys(Constant.Username);
+
 	   LOG.entrePass().sendKeys(Constant.Password);
 	   LOG.clickSubmit().click();
 	   String act=LOG.validate().getText();
